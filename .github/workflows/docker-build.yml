@@ -38,8 +38,9 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
+          file: ./Dockerfile
           push: true
-          tags: gcamps/python-helloworld:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/python-helloworld:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
